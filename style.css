@@ -152,3 +152,45 @@ footer {
   position: relative;
   z-index: 2;
 }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.skill {
+  background: rgba(0,255,255,0.08);
+  border-radius: 18px;
+  padding: 25px 10px;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.skill i {
+  font-size: 42px;
+  color: #00ffff;
+  margin-bottom: 10px;
+}
+
+.skill span {
+  display: block;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.skill:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 0 25px rgba(0,255,255,0.35);
+}
+.bg-image {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  filter: blur(2px);
+  z-index: 0;
+}
+
