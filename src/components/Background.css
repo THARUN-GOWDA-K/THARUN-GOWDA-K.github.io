@@ -1,0 +1,18 @@
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, #0a0a23, #02020f),
+    url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  opacity: 0.35;
+  z-index: -3;
+}
+
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}

@@ -1,0 +1,331 @@
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  background: radial-gradient(circle at top, #0a0a23, #02020f);
+  color: white;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding-top: 180px;
+  padding-left: 6vw;
+  padding-right: 6vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+}
+
+/* NAME */
+.hero h1 {
+  font-size: clamp(3.2rem, 7vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero h1 span {
+  color: #00ffff;
+}
+
+/* TAGLINE */
+.hero-tagline {
+  font-size: 1.6rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* DESCRIPTION */
+.hero-desc {
+  max-width: 720px;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  opacity: 0.85;
+}
+
+.hero-desc span {
+  color: #00ffff;
+  font-weight: 500;
+}
+
+/* FOCUS LINE */
+.hero-focus {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+/* SECTION HEADINGS */
+.section h2,
+.tech-section h2 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #00ffff;
+}
+
+/* SECTION TEXT */
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* CONTACT SECTION */
+/* CONTACT GRID */
+.contact-grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CARD */
+.contact-card {
+  height: 260px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 22px;
+  text-decoration: none;
+  color: white;
+
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CONTENT CENTERING */
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 0 20px;
+}
+
+/* ICON */
+.icon-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(0, 255, 255, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-wrapper svg {
+  font-size: 2.3rem;
+  color: white;
+}
+
+/* TITLE */
+.contact-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* SUBTEXT */
+.contact-sub {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  max-width: 220px;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+/* HOVER */
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.35);
+}
+
+.contact-card:hover .icon-wrapper {
+  background: rgba(0, 255, 255, 0.3);
+}
+
+.contact-card:hover svg {
+  color: #00ffff;
+}
+/* GLOBAL SECTION SPACING */
+.section,
+.tech-section,
+.projects-section,
+.contact {
+  position: relative;
+  padding: 140px 20px;
+  z-index: 2;
+}
+
+/* Limit content width */
+.section,
+.tech-section,
+.projects-section,
+.contact {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact {
+  margin-top: 120px;
+}
+/* RESUME SECTION */
+.resume {
+  text-align: center;
+}
+
+.resume-text {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+  opacity: 0.85;
+  line-height: 1.7;
+}
+
+/* BUTTON */
+.resume-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  background: linear-gradient(45deg, #00ffff, #00ff88);
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.9);
+}
+.hero {
+  min-height: 100vh;
+  padding-top: 150px; /* 👈 THIS CREATES SPACE FROM NAVBAR */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 160px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-desc {
+    max-width: 100%;
+  }
+}
+/* ABOUT */
+.about-text {
+  max-width: 800px;
+  line-height: 1.9;
+  opacity: 0.85;
+  margin-bottom: 60px;
+}
+
+/* EDUCATION SECTION */
+.education {
+  margin-top: 40px;
+}
+
+/* Education heading with accent line */
+.education-title {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.education-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 4px;
+  height: 28px;
+  background: linear-gradient(180deg, #5f6cff, #00ffff);
+  border-radius: 2px;
+}
+
+/* Education Card */
+.education-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 28px 34px;
+  max-width: 900px;
+
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(95, 108, 255, 0.35);
+
+  box-shadow: 0 0 40px rgba(95, 108, 255, 0.15);
+}
+
+/* College name */
+.education-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Degree */
+.education-degree {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+.education-degree span {
+  margin-left: 6px;
+  opacity: 0.7;
+}
+
+/* CGPA */
+.education-cgpa {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+@media (max-width: 768px) {
+  .education-card {
+    padding: 24px;
+  }
+
+  .education-title {
+    font-size: 1.6rem;
+  }
+}
