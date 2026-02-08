@@ -8,7 +8,8 @@ export default function BounceCards({
   enableHover = true,
   renderOverlay,
   onHover,
-  onLeave
+  onLeave,
+  onClickCard
 }) {
   const containerRef = useRef(null);
 
@@ -67,19 +68,21 @@ export default function BounceCards({
   return (
     <div ref={containerRef} className="bounceCardsContainer">
       {images.map((src, i) => (
-                <div
-            key={i}
-            className={`card card-${i}`}
-            style={{ transform: transformStyles[i] || "none" }}
-            onMouseEnter={() => {
-                pushSiblings(i);
-                onHover && onHover(i);
-            }}
-            onMouseLeave={() => {
-                reset();
-                onLeave && onLeave();
-            }}
-            >
+              <div
+  key={i}
+  className={`card card-${i}`}
+  style={{ transform: transformStyles[i] || "none", cursor: "pointer" }}
+  onMouseEnter={() => {
+    pushSiblings(i);
+    onHover && onHover(i);
+  }}
+  onMouseLeave={() => {
+    reset();
+    onLeave && onLeave();
+  }}
+  onClick={() => onClickCard && onClickCard(i)}   // 👈 CLICK HANDLER
+>
+
           <img src={src} alt={`project-${i}`} />
 
           {typeof renderOverlay === "function" && (

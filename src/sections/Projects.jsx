@@ -57,19 +57,26 @@ export default function Projects() {
 
       <div className="projects-cards-wrapper">
   <BounceCards
-    images={projects.map(p => p.image)}
-    transformStyles={transforms}
-    containerWidth={700}
-    containerHeight={360}
-    enableHover
-    onHover={setActiveIdx}
-    onLeave={() => setActiveIdx(null)}
-    renderOverlay={(idx) => (
-      <div className="project-title-overlay">
-        {projects[idx].title}
-      </div>
-    )}
-  />
+  images={projects.map(p => p.image)}
+  transformStyles={transforms}
+  containerWidth={700}
+  containerHeight={360}
+  enableHover
+  onHover={setActiveIdx}
+  onLeave={() => setActiveIdx(null)}
+  onClickCard={(idx) => {
+    const project = projects[idx];
+    if (project?.link) {
+      window.open(project.link, "_blank");
+    }
+  }}
+  renderOverlay={(idx) => (
+    <div className="project-title-overlay">
+      {projects[idx].title}
+    </div>
+  )}
+/>
+
 </div>
 
 
