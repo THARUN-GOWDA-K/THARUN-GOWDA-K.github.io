@@ -5,32 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tharun Gowda K | Portfolio</title>
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  
 
+  <link rel="stylesheet" href="style.css">
 </head>
-<div class="bg-image"></div>
-
 <body>
 
-<!-- Animated Background -->
+<!-- Background -->
+<div class="bg-image"></div>
 <canvas id="particleCanvas"></canvas>
 <div class="cursor-glow"></div>
 
-<header>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-logo">TGK</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<header class="reveal">
   <h1>THARUN <span>GOWDA K</span></h1>
   <h3>Aspiring Data Scientist</h3>
   <p>Turning data into insights with code & curiosity</p>
 
   <div class="header-buttons">
-    <a href="#projects">View Projects</a>
-    <a href="#contact" class="outline">Contact Me</a>
+    <a href="#projects" class="btn neon">View Projects</a>
+    <a href="resume.pdf" download class="btn outline">Download Resume</a>
   </div>
 </header>
 
-<section id="about">
+<!-- About -->
+<section id="about" class="reveal">
   <h2>About Me</h2>
   <p>
     Seeking a position that allows me to apply my strong analytical and
@@ -40,123 +52,61 @@
   </p>
 </section>
 
-<section id="skills" class="skills-section">
+<!-- Skills -->
+<section id="skills" class="skills-section reveal">
   <h2>Tech Stack</h2>
 
   <div class="skills-grid">
-
-    <!-- Programming -->
-    <div class="skill-card">
-      <i class="devicon-python-plain"></i>
-      <p>Python</p>
-    </div>
-
-    <div class="skill-card">
-      <i class="devicon-javascript-plain"></i>
-      <p>JavaScript</p>
-    </div>
-
-    <div class="skill-card">
-      <i class="devicon-java-plain"></i>
-      <p>Java</p>
-    </div>
-
-    <div class="skill-card">
-      <i class="devicon-c-plain"></i>
-      <p>C</p>
-    </div>
-
-    <!-- Web -->
-    <div class="skill-card">
-      <i class="devicon-html5-plain"></i>
-      <p>HTML</p>
-    </div>
-
-    <div class="skill-card">
-      <i class="devicon-css3-plain"></i>
-      <p>CSS</p>
-    </div>
-
-    <div class="skill-card">
-      <i class="devicon-react-original"></i>
-      <p>React</p>
-    </div>
-
-    <div class="skill-card">
-      <i class="devicon-nodejs-plain"></i>
-      <p>Node.js</p>
-    </div>
-
-    <!-- Backend -->
-    <div class="skill-card">
-      <i class="devicon-flask-original"></i>
-      <p>Flask</p>
-    </div>
-
-    <div class="skill-card">
-      <i class="devicon-fastapi-plain"></i>
-      <p>FastAPI</p>
-    </div>
-
-    <!-- Data / ML -->
-    <div class="skill-card">
-      <i class="devicon-numpy-original"></i>
-      <p>NumPy</p>
-    </div>
-
-    <div class="skill-card">
-      <i class="devicon-pandas-original"></i>
-      <p>Pandas</p>
-    </div>
-
-    <!-- Databases -->
-    <div class="skill-card">
-      <i class="devicon-mysql-plain"></i>
-      <p>MySQL</p>
-    </div>
-
-    <div class="skill-card">
-      <i class="devicon-mongodb-plain"></i>
-      <p>MongoDB</p>
-    </div>
-
+    <div class="skill-card"><i class="devicon-python-plain"></i><p>Python</p></div>
+    <div class="skill-card"><i class="devicon-javascript-plain"></i><p>JavaScript</p></div>
+    <div class="skill-card"><i class="devicon-java-plain"></i><p>Java</p></div>
+    <div class="skill-card"><i class="devicon-c-plain"></i><p>C</p></div>
+    <div class="skill-card"><i class="devicon-html5-plain"></i><p>HTML</p></div>
+    <div class="skill-card"><i class="devicon-css3-plain"></i><p>CSS</p></div>
+    <div class="skill-card"><i class="devicon-react-original"></i><p>React</p></div>
+    <div class="skill-card"><i class="devicon-flask-original"></i><p>Flask</p></div>
+    <div class="skill-card"><i class="devicon-fastapi-plain"></i><p>FastAPI</p></div>
+    <div class="skill-card"><i class="devicon-numpy-original"></i><p>NumPy</p></div>
+    <div class="skill-card"><i class="devicon-pandas-original"></i><p>Pandas</p></div>
+    <div class="skill-card"><i class="devicon-mongodb-plain"></i><p>MongoDB</p></div>
+    <div class="skill-card"><i class="devicon-mysql-plain"></i><p>MySQL</p></div>
   </div>
 </section>
 
-
-
-<section id="projects">
+<!-- Projects -->
+<section id="projects" class="reveal">
   <h2>Projects</h2>
 
-  <div class="projects">
-    <div class="project-card">
+  <div class="projects-grid">
+    <a class="project-card reveal" href="https://github.com/THARUN-GOWDA-K" target="_blank">
       <h3>HealthForesight</h3>
-      <p>AI-driven system for predicting health risks using data analytics.</p>
-    </div>
+      <p>AI-driven health risk prediction system.</p>
+    </a>
 
-    <div class="project-card">
+    <a class="project-card reveal" href="https://github.com/THARUN-GOWDA-K" target="_blank">
       <h3>Annual Report Portal</h3>
-      <p>Web portal for managing and visualizing annual organizational reports.</p>
-    </div>
+      <p>Web platform for managing annual reports.</p>
+    </a>
 
-    <div class="project-card">
-      <h3>Self-Healing Blockchain System</h3>
-      <p>Blockchain architecture capable of detecting and recovering from faults.</p>
-    </div>
+    <a class="project-card reveal" href="https://github.com/THARUN-GOWDA-K" target="_blank">
+      <h3>Self-Healing Blockchain</h3>
+      <p>Fault-tolerant blockchain architecture.</p>
+    </a>
 
-    <div class="project-card">
+    <a class="project-card reveal" href="https://github.com/THARUN-GOWDA-K" target="_blank">
       <h3>Student Management Chatbot</h3>
-      <p>Conversational AI assistant for student information and queries.</p>
-    </div>
+      <p>AI chatbot for student support.</p>
+    </a>
 
-    <div class="project-card">
+    <a class="project-card reveal" href="https://github.com/THARUN-GOWDA-K" target="_blank">
       <h3>Smart Farming Assistant</h3>
-      <p>AI-powered assistant to support farmers with data-driven decisions.</p>
-    </div>
+      <p>Data-driven assistant for agriculture.</p>
+    </a>
   </div>
 </section>
 
-<section id="contact">
+<!-- Contact -->
+<section id="contact" class="reveal">
   <h2>Contact</h2>
   <p>Let’s build something impactful together.</p>
 
