@@ -69,7 +69,7 @@ export default function BounceCards({
     <div ref={containerRef} className="bounceCardsContainer">
       {images.map((src, i) => (
                           <div
-              key={i}
+              key={i}git
               className={`card card-${i}`}
               style={{ transform: transformStyles[i] || "none", cursor: "pointer" }}
               onMouseEnter={() => {
