@@ -8,7 +8,7 @@ const projects = [
     description:
       "AI-driven health risk prediction using real-time data and machine learning models.",
     image: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144",
-    link: "https://github.com/THARUN-GOWDA-K"
+    link: "https://github.com/THARUN-GOWDA-K/HealthForesight"
   },
   {
     title: "Annual Report Portal",
@@ -22,7 +22,7 @@ const projects = [
     description:
       "Blockchain system that detects faults and restores integrity automatically.",
     image: "https://images.unsplash.com/photo-1639322537228-f710d846310a",
-    link: "https://github.com/THARUN-GOWDA-K"
+    link: "https://github.com/THARUN-GOWDA-K/Self-Healing-Blockchain"
   },
   {
     title: "Employee Management Chatbot",
