@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tharun Gowda K - Data Science & Machine Learning Portfolio" />
+    <title>Tharun Gowda K | Portfolio</title>
+    <script type="module" crossorigin src="/assets/index-BEOI9l4C.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B4tXJSJm.css">
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+      // Small runtime fix: update CGPA text and resume link without rebuilding bundle
+      document.addEventListener('DOMContentLoaded', function () {
+        try {
+          // Replace any visible "8.1 CGPA" text with "8.23 CGPA"
+          document.querySelectorAll('*').forEach(function (el) {
+            if (el.children.length === 0 && el.textContent && el.textContent.includes('8.1 CGPA')) {
+              el.textContent = el.textContent.replace(/8\.1 CGPA/g, '8.23 CGPA');
+            }
+          });
+
+          // Update resume download link if present
+          var resumeLink = document.querySelector('a[href="/ResumeTharun.pdf"]');
+          if (resumeLink) {
+            resumeLink.setAttribute('href', '/Tharun-Resume.pdf');
+          }
+        } catch (e) {
+          console.error('Runtime patch failed:', e);
+        }
+      });
+    </script>
+
+  </body>
+</html>
