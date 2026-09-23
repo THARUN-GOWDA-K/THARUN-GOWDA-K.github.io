@@ -161,7 +161,7 @@ export default function About() {
             I'm <strong>Tharun Gowda K</strong>, a CSE undergrad at{" "}
             <strong>Sri Venkateshwara College of Engineering</strong>,
             Bengaluru. I don't just study tech — I ship it. Five
-            projects deep, <strong>8.1 CGPA</strong>, and still hungry
+            projects deep, <strong>8.23 CGPA</strong>, and still hungry
             for the next challenge.
           </p>
 
