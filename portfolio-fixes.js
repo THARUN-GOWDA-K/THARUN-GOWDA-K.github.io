@@ -572,15 +572,15 @@
   ═══════════════════════════════════════════════════════════════════════════ */
   function initCertificates() {
     if (document.getElementById('pf-certifications')) return true;
-    var anchor = document.querySelector('.tech-section');
+    var anchor = document.querySelector('.projects-section');
     if (!anchor) return false;
 
     var groups = [
       {
         title: 'Internships & Experience',
         items: [
-          ['Internship', 'Python Development Internship', 'internship-completion-letter.pdf', '#a855f7'],
-          ['Internship', 'Web Development Internship', 'octanet-web-development-internship.pdf', '#00ffff']
+          ['Internship', 'Android App Development using Generative AI Internship - MindMatrix', 'internship-completion-letter.pdf', '#a855f7'],
+          ['Internship', 'Python Development Internship - OCTANET', 'octanet-web-development-internship.pdf', '#00ffff']
         ]
       },
       {
@@ -652,7 +652,11 @@
     item.addEventListener('keydown', function (event) {
       if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); goToCertifications(); }
     });
-    nav.appendChild(item);
+    var projectItem = Array.from(nav.querySelectorAll('li')).find(function (link) {
+      return link.textContent.trim().toLowerCase() === 'projects';
+    });
+    if (projectItem) projectItem.insertAdjacentElement('afterend', item);
+    else nav.appendChild(item);
     return true;
   }
 
