@@ -240,8 +240,26 @@
       .pf-cert-name { margin: 10px 0; font-size: .92rem; font-weight: 650; line-height: 1.35; }
       .pf-cert-link { color: rgba(255,255,255,.55); font-size: 11px; font-weight: 600; }
       .pf-cert-card:hover .pf-cert-link { color: #fff; }
+      .pf-nav-cert { white-space: nowrap; }
       @media(max-width: 850px) { .pf-cert-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
       @media(max-width: 520px) { .pf-certifications { padding: 20px 5vw 76px; } .pf-cert-group { padding: 14px; } .pf-cert-grid { grid-template-columns: 1fr; } }
+
+      /* Modern glass-gallery treatment */
+      .pf-certifications { padding-top: 64px; }
+      .pf-cert-head { text-align: center; margin: 0 auto 38px; }
+      .pf-cert-title { font-size: clamp(2.15rem, 5vw, 3.25rem); background: linear-gradient(105deg, #fff 20%, #00ffff 52%, #c084fc 82%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+      .pf-cert-groups { gap: 18px; }
+      .pf-cert-group { position:relative; overflow:hidden; padding: 24px; border-radius: 24px; background: linear-gradient(135deg, rgba(18,24,48,.68), rgba(9,11,27,.56)); border-color: rgba(190,205,255,.12); box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 20px 55px rgba(0,0,0,.12); }
+      .pf-cert-group::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 8% 0%, rgba(0,255,255,.08), transparent 28%), radial-gradient(circle at 100% 100%, rgba(168,85,247,.1), transparent 30%); pointer-events:none; }
+      .pf-cert-group-title { position:relative; z-index:1; display:flex; align-items:center; gap:8px; color:rgba(255,255,255,.66); }
+      .pf-cert-group-title::before { content:'✦'; color:#00ffff; font-size:12px; }
+      .pf-cert-card { min-height: 150px; padding: 18px; border-radius: 18px; background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.025)); border-color: rgba(255,255,255,.12); backdrop-filter: blur(18px) saturate(1.3); }
+      .pf-cert-card::after { content:'↗'; position:absolute; right:15px; top:12px; width:26px; height:26px; display:grid; place-items:center; border-radius:50%; color:rgba(255,255,255,.7); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.10); transition:transform .28s ease, background .28s ease; }
+      .pf-cert-card:hover { transform:translateY(-6px) scale(1.012); border-color:rgba(0,255,255,.48); box-shadow:0 18px 36px rgba(0,0,0,.30), 0 0 30px var(--cert-glow); }
+      .pf-cert-card:hover::after { transform:translate(2px,-2px); background:rgba(0,255,255,.17); color:#00ffff; }
+      .pf-cert-type { color:#5ff6ff; }
+      .pf-cert-name { max-width:calc(100% - 26px); font-size:1rem; }
+      .pf-cert-link { color:rgba(255,255,255,.48); letter-spacing:.02em; }
     `;
     document.head.appendChild(s);
   }
@@ -561,25 +579,25 @@
       {
         title: 'Internships & Experience',
         items: [
-          ['Internship', 'Internship Completion Letter', 'internship-completion-letter.pdf', '#a855f7'],
-          ['Internship', 'OctaNet Internship', 'octanet-web-development-internship.pdf', '#00ffff']
+          ['Internship', 'Python Development Internship', 'internship-completion-letter.pdf', '#a855f7'],
+          ['Internship', 'Web Development Internship', 'octanet-web-development-internship.pdf', '#00ffff']
         ]
       },
       {
         title: 'Technical Learning',
         items: [
-          ['Artificial Intelligence', 'AI Foundation Certification', 'ai-foundations-certificate.pdf', '#a855f7'],
-          ['Data Science', 'IBM Python for Data Science', 'ibm-python-for-data-science.pdf', '#00ffff'],
-          ['Analytics', 'Tata GenAI Data Analytics Simulation', 'tata-genai-data-analytics.pdf', '#ff6bcb'],
-          ['Web Development', 'Web Development Certification', 'web-development-certificate.pdf', '#00ffff'],
+          ['Artificial Intelligence', 'AI Foundations', 'ai-foundations-certificate.pdf', '#a855f7'],
+          ['Data Science', 'Python for Data Science', 'ibm-python-for-data-science.pdf', '#00ffff'],
+          ['Analytics', 'GenAI-Powered Data Analytics', 'tata-genai-data-analytics.pdf', '#ff6bcb'],
+          ['Web Development', 'Web Development Foundations', 'web-development-certificate.pdf', '#00ffff'],
           ['Project Management', 'Software Engineering & Project Management', 'software-engineering-project-management.pdf', '#a855f7']
         ]
       },
       {
         title: 'Academic & Achievement',
         items: [
-          ['Achievement', 'AICTE Activity Points Programme', 'aicte-activity-points.pdf', '#ff6bcb'],
-          ['Innovation', 'NIPAM Certificate', 'nipam-innovation.pdf', '#f59e0b']
+          ['Achievement', 'AICTE Activity Points', 'aicte-activity-points.pdf', '#ff6bcb'],
+          ['Innovation', 'National IP Awareness Mission', 'nipam-innovation.pdf', '#f59e0b']
         ]
       }
     ];
@@ -589,9 +607,9 @@
     section.className = 'pf-certifications';
     section.innerHTML =
       '<div class="pf-cert-head">' +
-        '<span class="pf-cert-eyebrow">Credentials</span>' +
-        '<h2 class="pf-cert-title">Learning backed by proof.</h2>' +
-        '<p class="pf-cert-copy">A focused collection of internships, technical coursework, and academic achievements. Open any card to view its original certificate.</p>' +
+        '<span class="pf-cert-eyebrow">Certifications</span>' +
+        '<h2 class="pf-cert-title">Proof behind the progress.</h2>' +
+        '<p class="pf-cert-copy">A curated record of hands-on internships, technical learning, and academic milestones. Open a card to view the original document.</p>' +
       '</div>' +
       '<div class="pf-cert-groups">' +
         groups.map(function (group) {
@@ -615,6 +633,26 @@
     }, { threshold: 0.08 });
     section.classList.add('pf-reveal');
     io.observe(section);
+    return true;
+  }
+
+  function initCertNav() {
+    var nav = document.querySelector('.nav-links');
+    if (!nav || nav.querySelector('.pf-nav-cert')) return !!nav;
+    var item = document.createElement('li');
+    item.className = 'pf-nav-cert';
+    item.textContent = 'Certifications';
+    item.setAttribute('role', 'link');
+    item.tabIndex = 0;
+    function goToCertifications() {
+      var section = document.getElementById('pf-certifications');
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    item.addEventListener('click', goToCertifications);
+    item.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); goToCertifications(); }
+    });
+    nav.appendChild(item);
     return true;
   }
 
@@ -711,7 +749,7 @@
   initScrollProgress();
   buildDrawerDOM();
 
-  var done = { skills: false, form: false, rings: false, story: false, typing: false, certs: false };
+  var done = { skills: false, form: false, rings: false, story: false, typing: false, certs: false, certNav: false };
 
   function runAll() {
     updateCgpa();
@@ -721,8 +759,9 @@
     if (!done.story)   done.story   = attachProjectStory();
     if (!done.typing)  done.typing  = initTyping();
     if (!done.certs)   done.certs   = initCertificates();
+    if (!done.certNav) done.certNav = initCertNav();
     initReveal();
-    if (done.skills && done.form && done.rings && done.story && done.typing && done.certs) mo.disconnect();
+    if (done.skills && done.form && done.rings && done.story && done.typing && done.certs && done.certNav) mo.disconnect();
   }
 
   var mo = new MutationObserver(runAll);
