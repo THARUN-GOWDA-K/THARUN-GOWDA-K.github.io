@@ -44,11 +44,30 @@
         box-shadow: 0 0 28px rgba(168,85,247,0.14);
         transform: translateY(-2px);
       }
+      .pf-stat-card.pf-stat-live {
+        animation: pf-stat-arrive 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
       .pf-stat-card::before {
         content: '';
         position: absolute; inset: 0;
         background: linear-gradient(140deg, rgba(168,85,247,0.07) 0%, rgba(0,255,255,0.03) 60%, transparent 100%);
         pointer-events: none;
+      }
+      .pf-stat-card::after {
+        content: '';
+        position: absolute; inset: -120% -60%;
+        background: linear-gradient(115deg, transparent 43%, rgba(255,255,255,0.12) 50%, transparent 57%);
+        transform: translateX(-55%) rotate(8deg);
+        pointer-events: none;
+      }
+      .pf-stat-card.pf-stat-live::after { animation: pf-stat-shine 1.15s 0.25s ease-out both; }
+      @keyframes pf-stat-arrive {
+        from { opacity: 0; transform: translateY(18px) scale(0.96); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @keyframes pf-stat-shine {
+        from { transform: translateX(-55%) rotate(8deg); }
+        to { transform: translateX(70%) rotate(8deg); }
       }
       .pf-stat-label {
         font-size: 9px; font-weight: 700; letter-spacing: 0.13em;
@@ -286,32 +305,30 @@
     var rings = document.querySelectorAll('.score-ring:not([data-pf])');
     if (!rings.length) return false;
 
-    rings.forEach(function (ring) {
+    // The React score component starts at "0" before its own count-up runs.
+    // Keep the source data here so our replacement never captures that transient value.
+    var academicScores = [
+      { value: 8.23, unit: '/10', label: 'CGPA', sub: 'University CGPA · SVCE', pct: 82.3, decimals: 2 },
+      { value: 90.83, unit: '%', label: 'Percentage', sub: 'Pre-university score', pct: 90.83, decimals: 2 },
+      { value: 94, unit: '%', label: 'Percentage', sub: 'Secondary school score', pct: 94, decimals: 0 }
+    ];
+
+    rings.forEach(function (ring, index) {
       ring.dataset.pf = '1';
-
-      var textEl = ring.querySelector('.ring-text');
-      if (!textEl) return;
-
-      var raw = textEl.textContent.trim();          // e.g. "8.23 CGPA" or "90.83%"
-      var isCgpa = raw.includes('CGPA');
-      var numStr = raw.replace(' CGPA', '').replace('%', '').trim();
-      var numVal  = parseFloat(numStr);
-      var pct     = isCgpa ? (numVal / 10) * 100 : numVal;  // scale to 100
-      var unit    = isCgpa ? '/10' : '%';
-      var sub     = isCgpa ? 'University CGPA' : 'Percentage';
-      var decimals = (numStr.indexOf('.') >= 0) ? numStr.split('.')[1].length : 0;
+      var score = academicScores[index];
+      if (!score) return;
 
       // Build the modern card
       var card = document.createElement('div');
       card.className = 'pf-stat-card';
       card.innerHTML =
-        '<span class="pf-stat-label">' + sub + '</span>' +
+        '<span class="pf-stat-label">' + score.label + '</span>' +
         '<div class="pf-stat-num-wrap">' +
-          '<span class="pf-stat-num" data-target="' + numVal + '" data-dec="' + decimals + '">0</span>' +
-          '<span class="pf-stat-unit">' + unit + '</span>' +
+          '<span class="pf-stat-num" data-target="' + score.value + '" data-dec="' + score.decimals + '">0</span>' +
+          '<span class="pf-stat-unit">' + score.unit + '</span>' +
         '</div>' +
-        '<span class="pf-stat-sub">' + (isCgpa ? 'Out of 10 · SVCE' : 'Academic Score') + '</span>' +
-        '<div class="pf-bar-track"><div class="pf-bar-fill" data-pct="' + pct + '"></div></div>';
+        '<span class="pf-stat-sub">' + score.sub + '</span>' +
+        '<div class="pf-bar-track"><div class="pf-bar-fill" data-pct="' + score.pct + '"></div></div>';
 
       ring.parentNode.insertBefore(card, ring);
       ring.style.display = 'none';
@@ -320,6 +337,7 @@
       var io = new IntersectionObserver(function (entries) {
         if (!entries[0].isIntersecting) return;
         io.disconnect();
+        card.classList.add('pf-stat-live');
 
         // Animate number
         var numEl = card.querySelector('.pf-stat-num');
@@ -338,7 +356,7 @@
         // Animate bar
         var fill = card.querySelector('.pf-bar-fill');
         requestAnimationFrame(function () {
-          fill.style.width = Math.min(pct, 100) + '%';
+          fill.style.width = Math.min(score.pct, 100) + '%';
         });
       }, { threshold: 0.4 });
       io.observe(card);
